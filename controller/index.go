@@ -27,12 +27,12 @@ func Index (w http.ResponseWriter,r *http.Request, _ httprouter.Params) {
 		page = 1
 	}
 	//如果是get方式请求
-	rows ,total , err := post.GetPostList(page,8,1)
+	rows ,total , err := post.GetPostList(page,10,1)
 	if err != nil {
 		w.Write([]byte(err.Error()))
 	}
 	//实例化分页
-	paginate:=paginator.NewPage(page,8,total,"/index")
+	paginate:=paginator.NewPage(page,10,total,"/")
 	//创建分页
 	//右侧公共模块
 	right:=serv.GetRight(w)

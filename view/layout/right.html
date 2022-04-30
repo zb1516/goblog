@@ -81,7 +81,7 @@
     {{ range $k,$v:=.newList }}
     <div class="ui segment">
       <i class="book icon"></i>
-      <a href="/post?id={{$v.ID}}" target="_blank" class="m-black m-text-thin">{{$v.Title}}</a>
+      <a href="/post/{{$v.ID}}" target="_blank" class="m-black m-text-thin">{{$v.Title}}</a>
     </div>
     {{ end }}
   </div>

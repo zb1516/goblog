@@ -4,6 +4,7 @@
     <div class="ui stackable grid">
       <!--左边博客列表-->
       <div class="eleven wide column">
+        {{if .list}}
         <div class="ui link centered cards">
           {{ range $k,$v := .list}}
           <div class="card" onclick="window.open('/post/{{$v.ID}}')">
@@ -61,6 +62,11 @@
 <!--            </a>-->
 <!--          </div>-->
         </div>
+        {{else}}
+        <div class="ui link centered cards">
+          暂无数据
+        </div>
+        {{end}}
       </div>
       <!--右边栏-->
       {{ template "right" .}}

@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="8805cc27-5b3f-4d76-a30e-502250cae97c" name="默认变更列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/admin/post/postEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/post/postEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/category.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/category.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/index.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/index.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/tag.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/tag.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/post.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/tagPost.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/tagPost.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/admin/post/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/post/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/layout/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/layout/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/layout/right.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/layout/right.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

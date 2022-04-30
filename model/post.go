@@ -46,13 +46,14 @@ func (p *Post)GetPostList(page int,limit int,is_top int) ( []*Post , int , error
 	if limit > 0 {
 		query = query.Limit(limit)
 	}
-	res := query.Order("created_at desc").Count(&total).Find(&post)
+	res := query.Order("created_at desc").Find(&post)
+	Db.Table(p.TableName()).Where("is_top = ?",is_top).Order("created_at desc").Count(&total)
 	return post , total , res.Error
 }
 
 //通过分类查询文章
 func (p *Post)GetPostByCategory(page int , limit int , cateGoryId int) (posts []*Post , count int,  err error)   {
-	offset:=(page-1)*10
+	offset := (page - 1) * limit
 	var (
 		post []*Post
 		total int
@@ -62,31 +63,29 @@ func (p *Post)GetPostByCategory(page int , limit int , cateGoryId int) (posts []
 	if cateGoryId > 0 {
 		query=query.Where("category_id = ?",cateGoryId)
 	}
-	errors := query.Order("created_at desc").Offset(offset).Limit(limit).Find(&post).Count(&total).Error
+	errors := query.Order("created_at desc").Offset(offset).Limit(limit).Count(&total).Find(&post).Error
+	query.Order("created_at desc").Count(&total)
 	return post,total,errors
 }
 
 //最新的五条数据
 func (p *Post)GetPostListNew() (posts []*Post ,  err error)   {
 	var post []*Post
-	errors := Db.Table(p.TableName()).Limit(5).Find(&post).Error
+	errors := Db.Table(p.TableName()).Order("created_at desc").Limit(5).Find(&post).Error
 	return post,errors
 }
 
 //通过分类查询文章
 func (p *Post)GetPostByTagPostId(page int , limit int , postId []int) (posts []*Post , count int ,  err error)   {
-	offset:=(page-1)*10
+	offset := (page - 1) * limit
 	var (
 		post []*Post
 		total int
 	)
 	query:=Db.Table(p.TableName())
-	//通过分类id查询
-	if len(postId) > 0 {
-		query=query.Where("id in (?)",postId)
-	}
-	errors := query.Order("created_at desc").Offset(offset).Limit(limit).Find(&post).Count(&total).Error
-	return post,total,errors
+	errs := query.Where("id in (?)",postId).Order("created_at desc").Offset(offset).Limit(limit).Find(&post).Error
+	query.Order("created_at desc").Count(&total)
+	return post,total,errs
 }
 
 //查询文章信息

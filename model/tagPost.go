@@ -13,7 +13,11 @@ func (m *TagPost)TableName() string {
 //取出文章id数组
 func (t *TagPost)GetPostId(tagId int) ([]int,error) {
 	var tagPost []*TagPost
-	res:=Db.Table(t.TableName()).Where("tag_id = ?",tagId).Find(&tagPost)
+	query:=Db.Table(t.TableName())
+	if tagId > 0 {
+		query=query.Where("tag_id = ?",tagId)
+	}
+	res:=query.Find(&tagPost)
 	//创建切片，存储所有文章id
 	var postID []int
 	for _,v := range tagPost{
