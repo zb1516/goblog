@@ -63,9 +63,9 @@
               {{ if .list}}
               {{ range $k,$v:=.list}}
               <tr class="gradeX">
-                <td><a href="/post?id={{$v.ID}}">{{$v.Title}}</a></td>
+                <td><a href="/post/{{$v.ID}}">{{$v.Title}}</a></td>
                 <td>{{$v.Tags}}</td>
-                <td><a href="/post?id={{$v.ID}}"><img src="/showpic?path={{$v.Image}}" width="100" height="90"></a></td>
+                <td><a href="/post/{{$v.ID}}"><img src="/showpic?path={{$v.Image}}" width="100" height="90"></a></td>
                 <td class="center">{{if eq $v.IsTop 1}} 是 {{else}} 否{{end}}</td>
                 <td class="center">{{$v.Info}}</td>
                 <td class="center">{{$v.Views}}</td>

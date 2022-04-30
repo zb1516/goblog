@@ -10,7 +10,7 @@ import (
 )
 
 //文章详情
-func Post(w http.ResponseWriter,r *http.Request , _ httprouter.Params) {
+func Post(w http.ResponseWriter,r *http.Request , p httprouter.Params) {
 	//判断请求方式
 	if r.Method == "post" {
 		w.Write([]byte("非法请求！"))
@@ -22,7 +22,9 @@ func Post(w http.ResponseWriter,r *http.Request , _ httprouter.Params) {
 		serv service.Service
 	)
 	//如果是get请求
-	postId := r.URL.Query().Get("id")
+	postId:=p.ByName("id")
+
+	//postId := r.URL.Query().Get("id")
 	id,_ = strconv.Atoi(postId)
 	res,_:=post.GetPostInfo(id)
 	//上一篇

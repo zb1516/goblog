@@ -6,7 +6,7 @@
       <div class="eleven wide column">
         <div class="ui link centered cards">
           {{ range $k,$v := .list}}
-          <div class="card" onclick="window.open('/post?id={{$v.ID}}')">
+          <div class="card" onclick="window.open('/post/{{$v.ID}}')">
             <div class="image">
               {{if ne $v.Image "" }}
               <img src="/showpic?path={{$v.Image}}" style="height: 200px">

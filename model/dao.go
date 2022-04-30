@@ -22,10 +22,6 @@ func init() {
 		panic(err)
 	}
 	Db = conn
-	// 指定表前缀，修改默认表名
-	//gorm.DefaultTableNameHandler = func (db *gorm.DB, defaultTableName string) string  {
-	//	return "tb_" + defaultTableName
-	//}
 }
 
 //返回带前缀的完整表名

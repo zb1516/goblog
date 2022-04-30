@@ -17,7 +17,7 @@ func RegisterRouter() *httprouter.Router{
 	router.GET("/tag", controller.TagList)
 	router.GET("/category", controller.CategoryList)
 	router.GET("/about", controller.About)
-	router.GET("/post", controller.Post)
+	router.GET("/post/:id", controller.Post)
 	router.Handler("POST","/love",middleware.ResponseHandler(controller.Love))
 	router.ServeFiles("/static/*filepath", http.Dir("static"))
 	router.GET("/admin",admin.Index)

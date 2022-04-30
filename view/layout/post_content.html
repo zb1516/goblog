@@ -43,7 +43,7 @@
       <div class="ui horizontal divider">结束</div>
       <div class="ui center aligned basic segment">
         {{if ne $.upPostInfo.ID 0}}
-        <div style="float: left">上一篇:<a style="color: #000000;text-decoration:underline;" href="/post?id={{$.upPostInfo.ID}}">{{$.upPostInfo.Title}}</a></div>
+        <div style="float: left">上一篇:<a style="color: #000000;text-decoration:underline;" href="/post/{{$.upPostInfo.ID}}">{{$.upPostInfo.Title}}</a></div>
         {{end}}
         <div class="ui labeled button" tabindex="{{$v.ID}}">
           <div class="ui red button" id="love">
@@ -54,7 +54,7 @@
           </a>
         </div>
         {{if ne $.lastPostInfo.ID 0}}
-        <div style="float: right">下一篇:<a style="color: #000000;text-decoration:underline;" href="/post?id={{$.lastPostInfo.ID}}">{{$.lastPostInfo.Title}}</a></div>
+        <div style="float: right">下一篇:<a style="color: #000000;text-decoration:underline;" href="/post/{{$.lastPostInfo.ID}}">{{$.lastPostInfo.Title}}</a></div>
         {{end}}
       </div>
 
