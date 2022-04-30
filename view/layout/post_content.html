@@ -20,7 +20,11 @@
         </div>
         <!--标签-->
         <div class="item">
-          <div class="ui orange basic label">原创</div>
+          {{if eq $v.Types 0 }}
+          <div class="ui orange basic label">原创 </div>
+          {{else}}
+          <div class="ui green basic label">转载 </div>
+          {{end}}
         </div>
         <!--end-->
       </div>
