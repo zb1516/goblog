@@ -3,7 +3,7 @@
     <div class="ui container ">
         <div class="ui secondary  stackable menu ">
             <a href="/" class="item">
-                <h2 class="ui header item">乜许博客</h2>
+                <h2 class="ui header item">{{.config.title}}</h2>
             </a>&nbsp;
             <a href="/" class="item m-item m-mobile-hide "><i class="home icon"></i>首页</a>
             <a href="/category" class="m-item item  m-mobile-hide"><i class="idea icon"></i>分类</a>
@@ -13,12 +13,12 @@
 <!--            <a href="./messages.html" target="_blank" class=" item   m-item  m-mobile-hide"><i class="mail icon  "></i>留言板</a>-->
 <!--            <a href="./friends.html" class=" item   m-item  m-mobile-hide"><i class="linkify icon"></i>友链</a>-->
             <div class="right m-item item m-mobile-hide">
-                <form name="search" action="#" method="post">
-                    <div class="ui icon  transparent  input">
-                        <input type="text" value="" name="query" placeholder="Search..." class="text" style="color:#606af5">
-                        <i onclick="document.forms['search'].submit()" class="search link icon  "></i>
-                    </div>
-                </form>
+<!--                <form name="search" action="/search" method="get">-->
+<!--                    <div class="ui icon  transparent  input">-->
+<!--                        <input type="text"  name="query" placeholder="Search..." class="text" style="color:#606af5">-->
+<!--                        <i onclick="document.forms['search'].submit()" class="search link icon  "></i>-->
+<!--                    </div>-->
+<!--                </form>-->
             </div>
         </div>
     </div>
