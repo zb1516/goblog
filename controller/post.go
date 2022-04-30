@@ -3,6 +3,7 @@ package controller
 import (
 	"github.com/julienschmidt/httprouter"
 	"goblog/model"
+	"goblog/service"
 	"goblog/until"
 	"net/http"
 	"strconv"
@@ -18,6 +19,7 @@ func Post(w http.ResponseWriter,r *http.Request , _ httprouter.Params) {
 		id int
 		post model.Post
 		controller Controller
+		serv service.Service
 	)
 	//如果是get请求
 	postId := r.URL.Query().Get("id")
@@ -27,11 +29,14 @@ func Post(w http.ResponseWriter,r *http.Request , _ httprouter.Params) {
 	upRes,_:=post.GetUpPost(id)
 	//下一篇
 	latRes,_:=post.GetLastPost(id)
+	//右侧公共部分
+	right:=serv.GetRight(w)
 	data:=make(map[string]interface{})
 	data["postInfo"] = res
 	data["upPostInfo"] = upRes
 	data["lastPostInfo"] = latRes
 	data["postInfo"] = res
+	data["config"]=right["config"]
 	data["is_post"] = true	//文章内容标示
 	controller.TplName="post"
 	controller.LayoutSections=data

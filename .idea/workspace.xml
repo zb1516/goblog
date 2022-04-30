@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8805cc27-5b3f-4d76-a30e-502250cae97c" name="默认变更列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/layout/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/layout/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/layout/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/layout/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/layout/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/post.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/goblog" beforeDir="false" afterPath="$PROJECT_DIR$/goblog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/view/about.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
