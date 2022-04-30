@@ -1,0 +1,15 @@
+{{ define "main"}}
+<!--导航-->
+{{template "header" .}}
+<!--end-->
+<!--中间布局-->
+{{if .is_post}}
+{{template "post_content" .}}
+{{else}}
+{{template "content" .}}
+{{ end }}
+<!--end-->
+<!--底部footer-->
+{{template "footer"}}
+{{ end }}
+

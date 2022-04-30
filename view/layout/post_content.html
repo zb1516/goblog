@@ -1,0 +1,115 @@
+{{ define "post_content"}}
+<input type="hidden" id="blogTitle">
+<input type="hidden" id="firstPicture">
+<input type="hidden" id="blogId">
+{{ range $k,$v:=.postInfo}}
+<div id="waypoint" class="m-container m-padded-tb-big animated fadeIn">
+  <div class="ui container">
+    <div class="ui top attached segment">
+      <div class="ui horizontal link list">
+        <div class="item">
+          <img src="/static/img/wechatLogo.jpeg"  alt="" class="ui avatar image">
+          <div class="content">{{$v.Username}}</div>
+        </div>
+        <div class="item">
+          <i class="clock outline icon"></i>
+          <span style="vertical-align:middle;">{{ $v.CreatedAt.Format "2006-01-02 15:04:05" }}</span>&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="item">
+          <i class="eye icon"></i> <span  style="vertical-align:middle;">{{$v.Views}}</span>
+        </div>
+        <!--标签-->
+        <div class="item">
+          <div class="ui orange basic label">原创</div>
+        </div>
+        <!--end-->
+      </div>
+    </div>
+    <!--文章内容-->
+    <div class="ui attached segment">
+      <div id="content" class="typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large">
+        <h2  id="blogTitleValue" class="ui center aligned header">{{$v.Title}}</h2>
+        <br>
+        {{$v.Content}}
+      </div>
+      <!--标签-->
+      <div class="m-padded-lr-responsive">
+        <div class="ui basic blue left pointing label">{{ $v.Tags }}</div>
+      </div>
+      <div class="ui horizontal divider">end</div>
+      <div class="ui center aligned basic segment">
+        <div class="ui labeled button" tabindex="{{$v.ID}}">
+          <div class="ui red button" id="love">
+            <i class="heart icon"></i> 喜欢
+          </div>
+          <a class="ui basic red left pointing label" id="num">
+            {{$v.Love}}
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <!--end-->
+    <div class="ui padded segment">
+      <!--作者信息-->
+      <div class="ui attached info message m-opacity-mini">
+        <div class="ui grid">
+          <div class="eleven wide column">
+            <ui class="list">
+              <li>作者：<span>乜许</span><a class="m-blue" href="#" target="_blank">（联系作者）</a></li>
+              <li>发表时间：<span>{{ $v.CreatedAt.Format "2006-01-02 15:04:05" }}</span>
+              </li>
+              <li>版权声明：自由转载-非商用-非衍生-保持署名</li>
+              <li>公众号转载：请在文末添加作者公众号二维码</li>
+            </ui>
+          </div>
+          <div class="five wide column">
+            <img src="/static/img/wechatLogo.jpeg" alt="" class="ui right floated rounded bordered image" style="width: 110px">
+          </div>
+        </div>
+      </div>
+      <!--end-->
+<!--      <div class="ui horizontal divider">-->
+<!--        <i class="comment icon"></i>-->
+<!--        发表评论-->
+<!--      </div>-->
+      <!--留言-->
+<!--      <div id="comment-container" class="comment"></div>-->
+      <!--end-->
+    </div>
+  </div>
+</div>
+{{ end }}
+<!--<div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none;">-->
+<!--  <div class="ui vertical icon buttons ">-->
+<!--    <button type="button" class="ui toc  blue button" >目录</button>-->
+<!--    <a href="#comment-container" class="ui  blue button" >留言</a>-->
+<!--    <button type="button" class="ui share  blue button" >分享</button>-->
+<!--    &lt;!&ndash;<button class="ui wechat icon button"><i class="weixin icon"></i></button>&ndash;&gt;-->
+<!--    <button class="ui wechat icon button"><i class="big qrcode blue icon"></i></button>-->
+<!--    <div id="toTop-button" class="ui icon button" ><i class="chevron up blue icon"></i></div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="ui toc-container flowing popup transition hidden" style="width: 250px!important;">-->
+<!--  <ol class="js-toc">-->
+
+<!--  </ol>-->
+<!--</div>-->
+<!--&lt;!&ndash;点击分享弹出框&ndash;&gt;-->
+<!--<div class="ui share-container flowing popup transition hidden" style="width: 240px!important;">-->
+<!--  <div class="ui bottom attached segment">-->
+<!--    <button title="点击分享微博" onclick="sinaWeiBo()" class="ui weibo circular icon button" ><i class="red weibo icon"></i></button>-->
+<!--    <button title="点击分享微信" onclick="shareWeiXin()" class="ui wechat circular icon button" ><i class="green weixin icon"></i></button>-->
+<!--    <button title="点击分享QQ好友" onclick="shareQQ()" class="ui qq circular icon button"><i class="blue qq icon"></i></button>-->
+
+<!--    <button title="点击分享QQ空间" onclick="shareQQZone()" class="ui qqZone circular icon button"><i class="yellow share icon"></i></button>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--二维码弹框-->
+<!--<div id="qrcode" class="ui wechat-qr flowing popup transition hidden "style="width: 130px !important;">-->
+<!--  <p style="color: rgb(123, 178, 250);font-size: small;text-align:center" class="h6 small">手机扫码阅读本文</p>-->
+
+<!--</div>-->
+{{end}}

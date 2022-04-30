@@ -1,0 +1,90 @@
+{{ define "right"}}
+<div class="five wide column">
+  <!--关于我-->
+  <div class="ui segments">
+    <div class="ui stackable grid">
+      <div class="column">
+        <div class="ui top attached segment">
+          <div class="ui header">关于我</div>
+        </div>
+        <div class="ui attached segment">
+          <div class="ui fluid card attached">
+            <a class="image" href="/about">
+              <img class="ui medium circular image" src="/static/img/wechatLogo.jpeg">
+            </a>
+            <div class="content" style="text-align: center;">
+              <a class="header " href="#">乜许</a>
+              <div class="meta">
+                <a></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui bottom attached segment" style="margin-bottom:0">
+          <a href="{{.config.github}}" class="ui inverted github circular icon button" data-content="点击跳转到GitHub" data-position="bottom center"><i class="black github icon"></i></a>
+          <a href="#" class="ui inverted wechat circular icon button"><i class="green weixin icon"></i></a>
+          <a href="#" class="ui inverted qq circular icon button" data-content="{{.config.qq}}" data-position="bottom center"><i class="blue qq icon"></i></a>
+        </div>
+        <div class="ui wechat-qr flowing popup transition hidden">
+          <img src="/static/img/wechat.jpeg" alt="" class="ui rounded image" style="width: 110px">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--标签-->
+  <div class="ui segments m-margin-top-large">
+    <div class="ui secondary segment">
+      <div class="ui two column grid">
+        <div class="column">
+          <i class="tags icon"></i>标签
+        </div>
+      </div>
+    </div>
+    <div class="ui black segment">
+      {{ if .tag}}
+        {{ range $k,$v := .tag }}
+          <a href="/tag?t={{ $v.ID }}" {{if eq $.tId $v.ID}} class="ui blue basic left pointing label m-margin-tb-tiny" {{else}} class="ui black basic left pointing label m-margin-tb-tiny" {{end}}>
+            <span>{{ $v.Name }}</span> <div class="detail">{{ $v.Count }}</div>
+          </a>
+        {{ end }}
+      {{end}}
+    </div>
+  </div>
+  <!-- 分类 -->
+  <div class="ui segments m-margin-top-large">
+    <div class="ui secondary segment">
+      <div class="ui two column grid">
+        <div class="column">
+          <i class="tags icon"></i>分类
+        </div>
+      </div>
+    </div>
+    <div class="ui black segment">
+      {{ if .category}}
+        <div class="ui labels" >
+          {{ range $k,$v := .category }}
+          <a href="/category?c={{ $v.ID }}" {{if eq $.catId $v.ID}}  class="ui blue label" {{else}} class="ui label" {{end}}>
+            <span>{{ $v.Name }}</span>
+          </a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+  <!--end-->
+  <!--最新推荐-->
+  <div class="ui segments m-margin-top-large">
+    <div class="ui secondary segment ">
+      <i class="bookmark icon"></i>最新推荐
+    </div>
+    {{ range $k,$v:=.newList }}
+    <div class="ui segment">
+      <i class="book icon"></i>
+      <a href="/post?id={{$v.ID}}" target="_blank" class="m-black m-text-thin">{{$v.Title}}</a>
+    </div>
+    {{ end }}
+  </div>
+  <!--end-->
+</div>
+{{end}}

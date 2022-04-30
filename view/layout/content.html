@@ -1,0 +1,71 @@
+{{define "content"}}
+<div  class="m-container m-padded-tb-big animated fadeIn">
+  <div class="ui container">
+    <div class="ui stackable grid">
+      <!--左边博客列表-->
+      <div class="eleven wide column">
+        <div class="ui link centered cards">
+          {{ range $k,$v := .list}}
+          <div class="card" onclick="window.open('/post?id={{$v.ID}}')">
+            <div class="image">
+              {{if ne $v.Image "" }}
+              <img src="/showpic?path={{$v.Image}}" style="height: 200px">
+              {{else}}
+              <img src="/static/img/default.jpeg" style="height: 200px">
+              {{end}}
+            </div>
+            <div class="content">
+              <div class="header" style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">
+                <a href=""  target="_blank" class="m-black">{{$v.Title}}</a>
+              </div>
+              <br>
+              <div class="meta">
+                <a class="ui mini  label">
+                  <img class="ui right spaced avatar image" src="/static/img/wechatLogo.jpeg">
+                  {{$v.Username}}
+                </a>
+              </div>
+              <div class="description" style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;">
+                {{$v.Info}}
+              </div>
+            </div>
+            <div class="extra content">
+                  <span class="right floated">
+                      <a class="ui mini label">
+                          <i class="tags icon"></i>
+                          {{$v.Tags}}
+                        </a>
+                  </span>
+              <span>
+               <i class="clock outline icon"></i>{{ $v.CreatedAt.Format "2006-01-02 15:04:05" }}
+              </span>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+        <br>
+        <!--分页footer-->
+        <div class="next-footer">
+          {{if .list}}
+          {{.page}}
+          {{end}}
+<!--          <div class="ui borderless pagination menu">-->
+<!--            <a class="item">-->
+<!--              <i class="left arrow icon"></i>上一页</a>-->
+<!--            <a class="item">1</a>-->
+<!--            <a class="item">2</a>-->
+<!--            <a class="item">...</a>-->
+<!--            <a class="item">30</a>-->
+<!--            <a class="item">-->
+<!--              下一页 <i class="icon right arrow"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+        </div>
+      </div>
+      <!--右边栏-->
+      {{ template "right" .}}
+    </div>
+  </div>
+</div>
+
+{{end}}
