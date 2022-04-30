@@ -50,7 +50,7 @@
               <div class="col-sm-10">
                 <select class="form-control m-b" name="category_id" id="category_id">
                   {{range $k,$v:=.catelist}}
-                  <option value="{{$v.ID}}">{{$v.Name}}</option>
+                  <option value="{{$v.ID}}" {{if eq $v.ID $.post.CategoryId}} selected {{end}}>{{$v.Name}}</option>
                   {{end}}
                 </select>
               </div>
@@ -61,7 +61,7 @@
               <div class="col-sm-10">
                 <select class="form-control m-b" name="tags" id="tags">
                   {{range $k,$v:=.taglist}}
-                  <option value="{{$v.ID}}" >{{$v.Name}}</option>
+                  <option value="{{$v.ID}}" {{if eq $v.Name $.post.Tags}} selected {{end}} >{{$v.Name}}</option>
                   {{end}}
                 </select>
               </div>
@@ -71,8 +71,18 @@
               <label class="col-sm-2 control-label">缩略图</label>
               <div class="col-sm-10">
                 <div id="uploader" class="wu-example">
-                  <div class="queueList">
-                    <div id="dndArea" class="placeholder">
+                  <div class="queueList" style="border:0">
+                    <ul class="filelist">
+                      <li>
+                        <p class="imgWrap">
+                          <img src="/showpic?path={{.post.Image}}">
+                        </p>
+                        <div class="file-panel">
+                          <span class="cancel">删除</span>
+                       </div>
+                      </li>
+                    </ul>
+                    <div id="dndArea" class="placeholder" style="display: none;">
                       <div id="filePicker"></div>
                       <p>或将照片拖到这里，单次最多可选1张</p>
                     </div>
@@ -187,7 +197,23 @@
     $('.summernote').summernote({
       lang: 'zh-CN'
     });
+
+    $(".filelist li").mouseover(function (){
+      $(this).find(".file-panel").attr("style","height:30px")
+    })
+    $(".filelist li").mouseout(function (){
+      $(this).find(".file-panel").attr("style","height:0px")
+    })
+    //删除图片
+    $(".file-panel .cancel").click(function(){
+      $(".filelist").hide()
+      $("#dndArea").attr("style","display:block;")
+      $(".queueList").attr("style","border:3px dashed #e6e6e6;")
+      // 重新渲染上传插件
+      $("<scri"+"pt >"+"</scr"+"ipt>").attr({src:"/static/admin/js/demo/webuploader-demo.js",type:'text/javascript'}).appendTo($('body'));
+    })
   });
+
   var edit = function () {
     $("#eg").addClass("no-padding");
     $('.click2edit').summernote({
@@ -229,6 +255,7 @@
       }
     });
   })
+
 </script>
 </body>
 </html>
