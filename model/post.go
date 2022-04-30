@@ -62,7 +62,7 @@ func (p *Post)GetPostByCategory(page int , limit int , cateGoryId int) (posts []
 	if cateGoryId > 0 {
 		query=query.Where("category_id = ?",cateGoryId)
 	}
-	errors := query.Offset(offset).Limit(limit).Find(&post).Count(&total).Error
+	errors := query.Order("created_at desc").Offset(offset).Limit(limit).Find(&post).Count(&total).Error
 	return post,total,errors
 }
 
