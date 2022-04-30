@@ -22,11 +22,15 @@ func Post(w http.ResponseWriter,r *http.Request , _ httprouter.Params) {
 	//如果是get请求
 	postId := r.URL.Query().Get("id")
 	id,_ = strconv.Atoi(postId)
-	res,err:=post.GetPostInfo(id)
-	if err != nil {
-		w.Write([]byte(err.Error()))
-	}
+	res,_:=post.GetPostInfo(id)
+	//上一篇
+	upRes,_:=post.GetUpPost(id)
+	//下一篇
+	latRes,_:=post.GetLastPost(id)
 	data:=make(map[string]interface{})
+	data["postInfo"] = res
+	data["upPostInfo"] = upRes
+	data["lastPostInfo"] = latRes
 	data["postInfo"] = res
 	data["is_post"] = true	//文章内容标示
 	controller.TplName="post"

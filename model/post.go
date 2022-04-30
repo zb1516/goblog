@@ -198,3 +198,17 @@ func (p *Post)UpdatePost(post Post) (Post,error) {
 	err:=Db.Table(p.TableName()).Where("id =?",post.ID).Update(&post).Error
 	return post,err
 }
+
+//获取上一篇
+func (p *Post)GetUpPost(postId int) (Post, error) {
+	var post Post
+	err:=Db.Where("ID = (?)", Db.Table(p.TableName()).Select("max(ID)").Where("ID < ?",postId).SubQuery()).Find(&post).Error
+	return post,err
+}
+
+//获取下一篇
+func (p *Post)GetLastPost(postId int) (Post, error) {
+	var post Post
+	err:=Db.Where("ID = (?)", Db.Table(p.TableName()).Select("min(ID)").Where("ID > ?",postId).SubQuery()).Find(&post).Error
+	return post,err
+}
