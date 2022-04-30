@@ -36,8 +36,9 @@
       <div class="m-padded-lr-responsive">
         <div class="ui basic blue left pointing label">{{ $v.Tags }}</div>
       </div>
-      <div class="ui horizontal divider">end</div>
+      <div class="ui horizontal divider">结束</div>
       <div class="ui center aligned basic segment">
+        <div style="float: left">上一篇</div>
         <div class="ui labeled button" tabindex="{{$v.ID}}">
           <div class="ui red button" id="love">
             <i class="heart icon"></i> 喜欢
@@ -46,6 +47,7 @@
             {{$v.Love}}
           </a>
         </div>
+        <div style="float: right">下一篇</div>
       </div>
 
     </div>
@@ -69,47 +71,43 @@
         </div>
       </div>
       <!--end-->
-<!--      <div class="ui horizontal divider">-->
-<!--        <i class="comment icon"></i>-->
-<!--        发表评论-->
-<!--      </div>-->
-      <!--留言-->
-<!--      <div id="comment-container" class="comment"></div>-->
-      <!--end-->
+      <div class="ui horizontal divider">
+        <i class="comment icon"></i>
+        发表评论
+      </div>
+      留言
+      <div id="comment-container" class="comment"></div>
     </div>
   </div>
 </div>
 {{ end }}
-<!--<div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none;">-->
-<!--  <div class="ui vertical icon buttons ">-->
-<!--    <button type="button" class="ui toc  blue button" >目录</button>-->
-<!--    <a href="#comment-container" class="ui  blue button" >留言</a>-->
-<!--    <button type="button" class="ui share  blue button" >分享</button>-->
-<!--    &lt;!&ndash;<button class="ui wechat icon button"><i class="weixin icon"></i></button>&ndash;&gt;-->
-<!--    <button class="ui wechat icon button"><i class="big qrcode blue icon"></i></button>-->
-<!--    <div id="toTop-button" class="ui icon button" ><i class="chevron up blue icon"></i></div>-->
-<!--  </div>-->
-<!--</div>-->
 
-<!--<div class="ui toc-container flowing popup transition hidden" style="width: 250px!important;">-->
-<!--  <ol class="js-toc">-->
+<div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none;">
+  <div class="ui vertical icon buttons ">
+    <button type="button" class="ui toc  blue button" >目录</button>
+    <a href="#comment-container" class="ui  blue button" >留言</a>
+    <button type="button" class="ui share  blue button" >分享</button>
+    <button class="ui wechat icon button"><i class="big qrcode blue icon"></i></button>
+    <div id="toTop-button" class="ui icon button" ><i class="chevron up blue icon"></i></div>
+  </div>
+</div>
+<div class="ui toc-container flowing popup transition hidden" style="width: 250px!important;">
+  <ol class="js-toc">
 
-<!--  </ol>-->
-<!--</div>-->
-<!--&lt;!&ndash;点击分享弹出框&ndash;&gt;-->
-<!--<div class="ui share-container flowing popup transition hidden" style="width: 240px!important;">-->
-<!--  <div class="ui bottom attached segment">-->
-<!--    <button title="点击分享微博" onclick="sinaWeiBo()" class="ui weibo circular icon button" ><i class="red weibo icon"></i></button>-->
-<!--    <button title="点击分享微信" onclick="shareWeiXin()" class="ui wechat circular icon button" ><i class="green weixin icon"></i></button>-->
-<!--    <button title="点击分享QQ好友" onclick="shareQQ()" class="ui qq circular icon button"><i class="blue qq icon"></i></button>-->
+  </ol>
+</div>
+<!--点击分享弹出框-->
+<div class="ui share-container flowing popup transition hidden" style="width: 240px!important;">
+  <div class="ui bottom attached segment">
+    <button title="点击分享微博" onclick="sinaWeiBo()" class="ui weibo circular icon button" ><i class="red weibo icon"></i></button>
+    <button title="点击分享微信" onclick="shareWeiXin()" class="ui wechat circular icon button" ><i class="green weixin icon"></i></button>
+    <button title="点击分享QQ好友" onclick="shareQQ()" class="ui qq circular icon button"><i class="blue qq icon"></i></button>
 
-<!--    <button title="点击分享QQ空间" onclick="shareQQZone()" class="ui qqZone circular icon button"><i class="yellow share icon"></i></button>-->
-<!--  </div>-->
-<!--</div>-->
-
+    <button title="点击分享QQ空间" onclick="shareQQZone()" class="ui qqZone circular icon button"><i class="yellow share icon"></i></button>
+  </div>
+</div>
 <!--二维码弹框-->
-<!--<div id="qrcode" class="ui wechat-qr flowing popup transition hidden "style="width: 130px !important;">-->
-<!--  <p style="color: rgb(123, 178, 250);font-size: small;text-align:center" class="h6 small">手机扫码阅读本文</p>-->
-
-<!--</div>-->
+<div id="qrcode" class="ui wechat-qr flowing popup transition hidden "style="width: 130px !important;">
+  <p style="color: rgb(123, 178, 250);font-size: small;text-align:center" class="h6 small">手机扫码阅读本文</p>
+</div>
 {{end}}
